@@ -1,0 +1,3 @@
+C:/Users/Riskbreaker/FileReader/CMakeFiles/FileReader.dir
+C:/Users/Riskbreaker/FileReader/CMakeFiles/edit_cache.dir
+C:/Users/Riskbreaker/FileReader/CMakeFiles/rebuild_cache.dir
