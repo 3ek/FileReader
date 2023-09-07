@@ -10,7 +10,6 @@ class FileReaderCpp : public IFileReader
 {
     private:
         std::ifstream ifs;
-        bool fileExists();
     public:
         FileReaderCpp(char* filePath);
         ~FileReaderCpp();

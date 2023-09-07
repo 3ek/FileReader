@@ -38,7 +38,7 @@ FileReaderApp::~FileReaderApp()
     delete fileReader;
 }
 
-FileReaderApp* FileReaderApp::Instance(int argc, char** argv)
+FileReaderApp* FileReaderApp::instance(int argc, char** argv)
 {
     if (ms_instance == nullptr) {
         ms_instance = new FileReaderApp{argc, argv};
@@ -46,7 +46,7 @@ FileReaderApp* FileReaderApp::Instance(int argc, char** argv)
     return ms_instance;
 }
 
-void FileReaderApp::Release()
+void FileReaderApp::release()
 {
     delete ms_instance;
     ms_instance = nullptr;
@@ -67,7 +67,7 @@ ErrorCode FileReaderApp::checkArgs(int argc, char** argv)
 
     try
     {
-        codeMethod = std::stoi(argv[1], nullptr);
+        codeMethod = argToInt(argv[1]);
     }
     catch (...)
     {
@@ -85,7 +85,7 @@ ErrorCode FileReaderApp::checkArgs(int argc, char** argv)
 
     try
     {
-        numOfLines = std::stoi(argv[3], nullptr);
+        numOfLines = argToInt(argv[3]);
     }
     catch (...)
     {
@@ -135,6 +135,7 @@ ErrorCode FileReaderApp::prepare()
         if(FileReaderException::FILE_ACCESS_ERROR == e)
         {
             std::cout << "ERROR: Cannot access the file provided in path." << std::endl;
+            std::cout << filePath << std::endl;
             std::cout << "Make sure path to file is valid, have permissions to read the file\nand it is not currently used by another program." << std::endl;
             return  ErrorCode::ERROR_FAIL;
         }
@@ -176,4 +177,33 @@ ErrorCode FileReaderApp::process()
     }
 
     return ErrorCode::ERROR_SUCCESS;
+}
+
+int FileReaderApp::argToInt(char* charString)
+{
+    int result = 0;
+    std::string checkStr = static_cast<std::string>(charString);
+    if(!isNumber(checkStr))
+    {
+        throw FileReaderArgumentException::ARG_INVALID_NUM;
+    }
+
+    result = std::stoi(checkStr, nullptr);
+
+    return result;
+}
+
+bool FileReaderApp::isNumber(std::string checkStr)
+{
+    const int limit = static_cast<int>(checkStr.length());
+    int cr;
+
+    for(cr = 0; cr < limit; cr++)
+    {
+        if(!std::isdigit(checkStr[cr]))
+        {
+            return false;
+        }
+    }
+    return true;
 }

@@ -8,7 +8,7 @@ int main(int argc, char** argv)
 
     try
     {
-        reader = FileReaderApp::Instance(argc, argv);
+        reader = FileReaderApp::instance(argc, argv);
         reader->process();
     }
     catch(ErrorCode e)
@@ -16,6 +16,6 @@ int main(int argc, char** argv)
         status = static_cast<int>(e);
     }
 
-    reader->Release();
+    reader->release();
     return status;
 }

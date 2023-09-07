@@ -8,6 +8,11 @@
 #include "FileReaderC.hpp"
 #include "FileReaderCpp.hpp"
 
+enum class FileReaderArgumentException
+{
+    ARG_INVALID_NUM = 0xBABA
+};
+
 class FileReaderApp
 {
 private:
@@ -26,11 +31,13 @@ private:
     ErrorCode checkArgs(int argc, char** argv);
     ErrorCode prepare();
     void helpDisplay();
+    int argToInt(char* charString);
+    bool isNumber(std::string checkStr);
 
 public:
     static FileReaderApp* ms_instance;
-    static FileReaderApp* Instance(int argc, char** argv);
-    static void Release();
+    static FileReaderApp* instance(int argc, char** argv);
+    static void release();
     ErrorCode process();
 
 
