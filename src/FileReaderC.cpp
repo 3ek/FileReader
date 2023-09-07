@@ -1,14 +1,24 @@
+#include <errno.h>
 #include <iostream>
 #include <cstdio>
 #include <optional>
+#include <string>
 #include "FileReaderC.hpp"
 
-FileReaderC::FileReaderC(char* filePath) //TODO: Issues using fgets with dynamic buffer between Windows and Linux file format.
+FileReaderC::FileReaderC(char* filePath)
 {
-    pF = fopen(filePath, "rb");
-    if(nullptr == pF)
+    errno_t status;
+    status = fopen_s(&pF, filePath, "rb");
+
+    if((0 != status) || (nullptr == pF))
     {
-        throw FILE_ACCESS_ERROR;
+        throw FileReaderException::FILE_ACCESS_ERROR;
+    }
+
+    strBuf = malloc(0);
+    if(nullptr == strBuf)
+    {
+        throw FileReaderException::MEMORY_ERROR;
     }
 }
 
@@ -26,7 +36,7 @@ std::optional<std::string> FileReaderC::readLine()
     ErrorCode status;
     void * retval;
     std::string retstr;
-    
+
     if(feof(pF) || isEof)
     {
         return std::nullopt;
@@ -34,8 +44,8 @@ std::optional<std::string> FileReaderC::readLine()
 
     status = setBuffer();
     retval = fgets((char*)strBuf, strBufSize, pF);
-    
-    if((nullptr == retval) || (ERROR_SUCCESS != status))
+
+    if((nullptr == retval) || (ErrorCode::ERROR_SUCCESS != status))
     {
         return std::nullopt;
     }
@@ -47,12 +57,12 @@ ErrorCode FileReaderC::getNextEol(int * nextEolPos, bool * isCrPresent)
 {
     int newPos = currPos;
     int getChar = getc(pF);
-    
+
     if(nullptr == isCrPresent)
     {
-        return ERROR_INVALID_PTR;
+        return ErrorCode::ERROR_INVALID_PTR;
     }
-    
+
     fseek(pF, currPos, SEEK_SET);
     while(!feof(pF) && !isEof)
     {
@@ -71,21 +81,21 @@ ErrorCode FileReaderC::getNextEol(int * nextEolPos, bool * isCrPresent)
             break;
         }
     }
-    
+
     if(*isCrPresent)
     {
         newPos--;
     }
     fseek(pF, currPos, SEEK_SET); // Revert position
-    
+
     if(newPos < currPos)
     {
-        return ERROR_FAIL;
+        return ErrorCode::ERROR_FAIL;
     }
-    
+
     *nextEolPos = newPos;
-    
-    return ERROR_SUCCESS;
+
+    return ErrorCode::ERROR_SUCCESS;
 }
 
 ErrorCode FileReaderC::setBuffer()
@@ -93,22 +103,22 @@ ErrorCode FileReaderC::setBuffer()
     ErrorCode status;
     int newPos = 0;
     bool isCrPresent = false;
-    
+
     status = getNextEol(&newPos, &isCrPresent);
-    if(ERROR_SUCCESS != status)
+    if(ErrorCode::ERROR_SUCCESS != status)
     {
         return status;
     }
-    
+
     strBufSize = newPos - currPos;
     strBuf = realloc(strBuf, strBufSize);
-    
+
     if(nullptr == strBuf)
     {
-        return ERROR_FAIL;
+        throw FileReaderException::MEMORY_ERROR;
     }
-    
+
     currPos = newPos + (int)isCrPresent;
-    
-    return ERROR_SUCCESS;
+
+    return ErrorCode::ERROR_SUCCESS;
 }

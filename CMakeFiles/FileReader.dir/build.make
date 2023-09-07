@@ -83,11 +83,26 @@ CMakeFiles/FileReader.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FileReader.dir/src/main.cpp.s"
 	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Riskbreaker\FileReader\src\main.cpp -o CMakeFiles\FileReader.dir\src\main.cpp.s
 
+CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj: CMakeFiles/FileReader.dir/flags.make
+CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj: CMakeFiles/FileReader.dir/includes_CXX.rsp
+CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj: src/FileReaderApp.cpp
+CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj: CMakeFiles/FileReader.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Riskbreaker\FileReader\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj -MF CMakeFiles\FileReader.dir\src\FileReaderApp.cpp.obj.d -o CMakeFiles\FileReader.dir\src\FileReaderApp.cpp.obj -c C:\Users\Riskbreaker\FileReader\src\FileReaderApp.cpp
+
+CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.i"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Riskbreaker\FileReader\src\FileReaderApp.cpp > CMakeFiles\FileReader.dir\src\FileReaderApp.cpp.i
+
+CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.s"
+	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Riskbreaker\FileReader\src\FileReaderApp.cpp -o CMakeFiles\FileReader.dir\src\FileReaderApp.cpp.s
+
 CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj: CMakeFiles/FileReader.dir/flags.make
 CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj: CMakeFiles/FileReader.dir/includes_CXX.rsp
 CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj: src/FileReaderC.cpp
 CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj: CMakeFiles/FileReader.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Riskbreaker\FileReader\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Riskbreaker\FileReader\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj"
 	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj -MF CMakeFiles\FileReader.dir\src\FileReaderC.cpp.obj.d -o CMakeFiles\FileReader.dir\src\FileReaderC.cpp.obj -c C:\Users\Riskbreaker\FileReader\src\FileReaderC.cpp
 
 CMakeFiles/FileReader.dir/src/FileReaderC.cpp.i: cmake_force
@@ -102,7 +117,7 @@ CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj: CMakeFiles/FileReader.dir/f
 CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj: CMakeFiles/FileReader.dir/includes_CXX.rsp
 CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj: src/FileReaderCpp.cpp
 CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj: CMakeFiles/FileReader.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Riskbreaker\FileReader\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Riskbreaker\FileReader\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj"
 	C:\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj -MF CMakeFiles\FileReader.dir\src\FileReaderCpp.cpp.obj.d -o CMakeFiles\FileReader.dir\src\FileReaderCpp.cpp.obj -c C:\Users\Riskbreaker\FileReader\src\FileReaderCpp.cpp
 
 CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.i: cmake_force
@@ -116,6 +131,7 @@ CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.s: cmake_force
 # Object files for target FileReader
 FileReader_OBJECTS = \
 "CMakeFiles/FileReader.dir/src/main.cpp.obj" \
+"CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj" \
 "CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj" \
 "CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj"
 
@@ -123,13 +139,14 @@ FileReader_OBJECTS = \
 FileReader_EXTERNAL_OBJECTS =
 
 bin/FileReader.exe: CMakeFiles/FileReader.dir/src/main.cpp.obj
+bin/FileReader.exe: CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj
 bin/FileReader.exe: CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj
 bin/FileReader.exe: CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj
 bin/FileReader.exe: CMakeFiles/FileReader.dir/build.make
 bin/FileReader.exe: CMakeFiles/FileReader.dir/linkLibs.rsp
 bin/FileReader.exe: CMakeFiles/FileReader.dir/objects1.rsp
 bin/FileReader.exe: CMakeFiles/FileReader.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Riskbreaker\FileReader\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable bin\FileReader.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Riskbreaker\FileReader\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bin\FileReader.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\FileReader.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

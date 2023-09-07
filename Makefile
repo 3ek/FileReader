@@ -128,6 +128,30 @@ FileReader/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\FileReader.dir\build.make CMakeFiles/FileReader.dir/build
 .PHONY : FileReader/fast
 
+src/FileReaderApp.obj: src/FileReaderApp.cpp.obj
+.PHONY : src/FileReaderApp.obj
+
+# target to build an object file
+src/FileReaderApp.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FileReader.dir\build.make CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj
+.PHONY : src/FileReaderApp.cpp.obj
+
+src/FileReaderApp.i: src/FileReaderApp.cpp.i
+.PHONY : src/FileReaderApp.i
+
+# target to preprocess a source file
+src/FileReaderApp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FileReader.dir\build.make CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.i
+.PHONY : src/FileReaderApp.cpp.i
+
+src/FileReaderApp.s: src/FileReaderApp.cpp.s
+.PHONY : src/FileReaderApp.s
+
+# target to generate assembly for a file
+src/FileReaderApp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\FileReader.dir\build.make CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.s
+.PHONY : src/FileReaderApp.cpp.s
+
 src/FileReaderC.obj: src/FileReaderC.cpp.obj
 .PHONY : src/FileReaderC.obj
 
@@ -209,6 +233,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... FileReader
+	@echo ... src/FileReaderApp.obj
+	@echo ... src/FileReaderApp.i
+	@echo ... src/FileReaderApp.s
 	@echo ... src/FileReaderC.obj
 	@echo ... src/FileReaderC.i
 	@echo ... src/FileReaderC.s

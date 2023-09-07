@@ -1,12 +1,13 @@
 #ifndef COMMON_HPP
 #define COMMON_HPP
 
-enum ErrorCode
+enum class ErrorCode : int
 {
     ERROR_SUCCESS,
     ERROR_FAIL,
     ERROR_INVARGS,
-    ERROR_INVALID_PTR
+    ERROR_INVALID_PTR,
+    ERROR_NOMEM
 };
 
 enum ReadMethods

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj"
+  "CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj.d"
   "CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj"
   "CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj.d"
   "CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj"

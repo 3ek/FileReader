@@ -1,10 +1,12 @@
 #ifndef IFILEREADER_HPP
 #define IFILEREADER_HPP
 #include <optional>
+#include <string>
 
-enum FileReaderException
+enum class FileReaderException
 {
     FILE_ACCESS_ERROR = 0xABBA,
+    MEMORY_ERROR,
 };
 
 class IFileReader

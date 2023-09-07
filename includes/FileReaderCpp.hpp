@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <optional>
+#include <string>
 #include "IFileReader.hpp"
 
 class FileReaderCpp : public IFileReader

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/Riskbreaker/FileReader/src/FileReaderApp.cpp" "CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj" "gcc" "CMakeFiles/FileReader.dir/src/FileReaderApp.cpp.obj.d"
   "C:/Users/Riskbreaker/FileReader/src/FileReaderC.cpp" "CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj" "gcc" "CMakeFiles/FileReader.dir/src/FileReaderC.cpp.obj.d"
   "C:/Users/Riskbreaker/FileReader/src/FileReaderCpp.cpp" "CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj" "gcc" "CMakeFiles/FileReader.dir/src/FileReaderCpp.cpp.obj.d"
   "C:/Users/Riskbreaker/FileReader/src/main.cpp" "CMakeFiles/FileReader.dir/src/main.cpp.obj" "gcc" "CMakeFiles/FileReader.dir/src/main.cpp.obj.d"
