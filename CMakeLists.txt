@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
 project(FileReader)
-include_directories(includes)
-set(SOURCES "includes/FileReaderApp.hpp" "includes/FileReaderC.hpp" "includes/FileReaderCpp.hpp" "includes/Common.hpp" "includes/IFileReader.hpp" "src/main.cpp" "src/FileReaderApp.cpp" "src/FileReaderC.cpp" "src/FileReaderCpp.cpp")
-add_executable(FileReader ${SOURCES})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
+include_directories(${PROJECT_SOURCE_DIR}/include)
+set(SOURCES
+    src/main.cpp
+    src/FileReaderApp.cpp
+    src/FileReaderC.cpp
+    src/FileReaderCpp.cpp
+)
+add_executable(${PROJECT_NAME} ${SOURCES} )
