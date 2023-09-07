@@ -6,6 +6,8 @@
 #include "FileReaderC.hpp"
 #include "FileReaderCpp.hpp"
 
+const int REG_ARG_NUM = 4;
+
 FileReaderApp* FileReaderApp::ms_instance{ nullptr };
 
 FileReaderApp::FileReaderApp(int argc, char** argv)
@@ -57,7 +59,7 @@ ErrorCode FileReaderApp::checkArgs(int argc, char** argv)
         return ErrorCode::ERROR_INVALID_PTR;
     }
 
-    if(req_arg_num != argc)
+    if(REG_ARG_NUM != argc)
     {
         helpDisplay();
         return ErrorCode::ERROR_INVARGS;

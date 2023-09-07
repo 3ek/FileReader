@@ -11,7 +11,6 @@
 class FileReaderApp
 {
 private:
-    const int req_arg_num = 4;
     char* filePath;
     int codeMethod;
     int numOfLines;
