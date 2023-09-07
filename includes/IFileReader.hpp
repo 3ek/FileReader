@@ -1,5 +1,5 @@
-#ifndef IFILEREADER_H
-#define IFILEREADER_H
+#ifndef IFILEREADER_HPP
+#define IFILEREADER_HPP
 #include <optional>
 
 enum FileReaderException
@@ -15,4 +15,4 @@ public:
     virtual std::optional<std::string> readLine() = 0;
 };
 
-#endif // IFILEREADER_H
+#endif // IFILEREADER_HPP

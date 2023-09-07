@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Common.h"
-#include "IFileReader.h"
-#include "FileReaderC.h"
-#include "FileReaderCpp.h"
+#include "Common.hpp"
+#include "IFileReader.hpp"
+#include "FileReaderC.hpp"
+#include "FileReaderCpp.hpp"
 
 #define REQ_ARG_NUM 4
 
@@ -87,15 +87,23 @@ int main(int argc, char** argv)
     {
         return status;
     }
-    
-    if(METHOD_C == codeMethod)
+    try
     {
-        fileReader = new FileReaderC(filePath);
+        if(METHOD_C == codeMethod)
+        {
+            fileReader = new FileReaderC(filePath);
+        }
+        
+        if(METHOD_CPP == codeMethod)
+        {
+            fileReader = new FileReaderCpp(filePath);
+        }
     }
-    
-    if(METHOD_CPP == codeMethod)
+    catch (FileReaderException FILE_ACCESS_ERROR)
     {
-        fileReader = new FileReaderCpp(filePath);
+        std::cout << "Cannot access the file provided in path." << std::endl;
+        std::cout << "Make sure path to file is valid, have permissions to read the file\nand it is not currently used by another program." << std::endl;
+        return ERROR_FAIL;
     }
 
     for(lineNum = 0; lineNum < numOfLines; lineNum++)

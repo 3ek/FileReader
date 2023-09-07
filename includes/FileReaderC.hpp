@@ -1,9 +1,9 @@
-#ifndef FILEREADERC_H
-#define FILEREADERC_H
+#ifndef FILEREADERC_HPP
+#define FILEREADERC_HPP
 
 #include <optional>
-#include "Common.h"
-#include "IFileReader.h"
+#include "Common.hpp"
+#include "IFileReader.hpp"
 
 class FileReaderC : public IFileReader
 {
@@ -21,4 +21,4 @@ class FileReaderC : public IFileReader
         std::optional<std::string> readLine();
 };
 
-#endif // FILEREADERC_H
+#endif // FILEREADERC_HPP

@@ -1,9 +1,9 @@
-#ifndef FILEREADERCPP_H
-#define FILEREADERCPP_H
+#ifndef FILEREADERCPP_HPP
+#define FILEREADERCPP_HPP
 
 #include <fstream>
 #include <optional>
-#include "IFileReader.h"
+#include "IFileReader.hpp"
 
 class FileReaderCpp : public IFileReader
 {
@@ -16,4 +16,4 @@ class FileReaderCpp : public IFileReader
         std::optional<std::string> readLine();
 };
 
-#endif // FILEREADERCPP_H
+#endif // FILEREADERCPP_HPP

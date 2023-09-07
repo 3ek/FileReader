@@ -1,5 +1,5 @@
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef COMMON_HPP
+#define COMMON_HPP
 
 enum ErrorCode
 {
@@ -16,4 +16,4 @@ enum ReadMethods
     METHOD_MAX
 };
 
-#endif // COMMON_H
+#endif // COMMON_HPP

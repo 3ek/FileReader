@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "FileReaderCpp.h"
+#include "FileReaderCpp.hpp"
 
 FileReaderCpp::FileReaderCpp(char* filePath)
 {
@@ -22,5 +22,13 @@ FileReaderCpp::~FileReaderCpp()
 
 std::optional<std::string> FileReaderCpp::readLine()
 {
-    return "ToDO";
+    std::string result;
+    
+    if (ifs.bad() || ifs.eof())
+    {
+        return std::nullopt;
+    } 
+    std::getline(ifs, result);
+    
+    return result;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdio>
 #include <optional>
-#include "FileReaderC.h"
+#include "FileReaderC.hpp"
 
 FileReaderC::FileReaderC(char* filePath) //TODO: Issues using fgets with dynamic buffer between Windows and Linux file format.
 {
@@ -14,15 +14,16 @@ FileReaderC::FileReaderC(char* filePath) //TODO: Issues using fgets with dynamic
 
 FileReaderC::~FileReaderC()
 {
+    free(strBuf);
     if(nullptr != pF)
     {
         fclose(pF);
     }
-    free(strBuf);
 }
 
 std::optional<std::string> FileReaderC::readLine()
 {
+    ErrorCode status;
     void * retval;
     std::string retstr;
     
@@ -31,9 +32,10 @@ std::optional<std::string> FileReaderC::readLine()
         return std::nullopt;
     }
 
-    setBuffer();
+    status = setBuffer();
     retval = fgets((char*)strBuf, strBufSize, pF);
-    if(nullptr == retval)
+    
+    if((nullptr == retval) || (ERROR_SUCCESS != status))
     {
         return std::nullopt;
     }
@@ -88,9 +90,15 @@ ErrorCode FileReaderC::getNextEol(int * nextEolPos, bool * isCrPresent)
 
 ErrorCode FileReaderC::setBuffer()
 {
+    ErrorCode status;
     int newPos = 0;
     bool isCrPresent = false;
-    getNextEol(&newPos, &isCrPresent);
+    
+    status = getNextEol(&newPos, &isCrPresent);
+    if(ERROR_SUCCESS != status)
+    {
+        return status;
+    }
     
     strBufSize = newPos - currPos;
     strBuf = realloc(strBuf, strBufSize);
